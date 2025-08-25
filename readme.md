@@ -1,52 +1,91 @@
-# HillClimbRacing-Mediapipe Gesture Control
+# HillClimbRacing-Mediapipe Gesture Control 🎮
 
-This project uses [MediaPipe](https://mediapipe.dev/) and [OpenCV](https://opencv.org/) to control the Hill Climb Racing game using hand gestures detected from your webcam.
+Play Hill Climb Racing using hand gestures! This project combines MediaPipe's hand tracking capabilities with OpenCV to create a fun and interactive way to control the game through your webcam.
 
-## Features
+## 🎯 Features
 
-- Detects left and right hands using MediaPipe.
-- Draws bounding boxes and labels for detected hands.
-- Uses hand gestures (middle finger tip above wrist) to simulate keyboard presses:
-  - **Left hand up:** Presses the `right` key.
-  - **Right hand up:** Presses the `left` key.
-- Real-time webcam feed with gesture visualization.
+- Real-time hand tracking and gesture recognition
+- Intuitive gesture controls:
+  - **Left hand up** ⬆️: Accelerate (triggers `right` key)
+  - **Right hand up** ⬆️: Brake (triggers `left` key)
+- Visual feedback with hand landmarks and bounding boxes
+- Low latency response for smooth gameplay
 
-## Requirements
+## 🛠️ Requirements
 
-- Python 3.x
-- [OpenCV](https://pypi.org/project/opencv-python/)
-- [MediaPipe](https://pypi.org/project/mediapipe/)
-- [PyDirectInput](https://pypi.org/project/pydirectinput/)
+- Python 3.7 or higher
+- Webcam
+- Hill Climb Racing game
+- Required Python packages:
+  ```
+  opencv-python >= 4.5.0
+  mediapipe >= 0.8.9
+  pydirectinput >= 1.0.4
+  ```
 
-Install dependencies with:
+## 📦 Installation
 
-```sh
-pip install opencv-python mediapipe pydirectinput
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/HillClimbRacing-Mediapipe.git
+   cd HillClimbRacing-Mediapipe
+   ```
+
+2. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+## 🎮 How to Play
+
+1. Launch Hill Climb Racing
+2. Open a terminal and run:
+   ```sh
+   python main.py
+   ```
+3. Position yourself in front of the webcam
+4. Control the game with these gestures:
+   - Raise left hand above shoulder → Accelerate
+   - Raise right hand above shoulder → Brake
+   - Both hands down → No action
+5. Press `q` to exit the program
+
+## 📁 Project Structure
+
+```
+HillClimbRacing-Mediapipe/
+│
+├── main.py          # Main game control script
+├── requirements.txt # Project dependencies
+└── README.md       # Project documentation
 ```
 
-## Usage
+## 🔧 Configuration
 
-1. Make sure Hill Climb Racing is running and focused.
-2. Run the script:
+The default webcam (index 0) is used. To use a different camera, modify the camera index in `main.py`:
+```python
+cap = cv2.VideoCapture(0)  # Change 0 to your desired camera index
+```
 
-    ```sh
-    python main.py
-    ```
+## 🤝 Contributing
 
-3. Use your webcam to show your hands:
-    - Raise your **left hand** to accelerate (`right` key).
-    - Raise your **right hand** to brake (`left` key).
-4. Press `q` to quit.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## File Structure
+## ⚠️ Troubleshooting
 
-- [`main.py`](main.py): Main script for gesture detection and game control.
+- **No camera detected**: Ensure your webcam is properly connected and not in use by other applications
+- **Game not responding**: Make sure the game window is active and in focus
+- **Lag in controls**: Try reducing the camera resolution in `main.py`
 
-## Notes
+## 📜 License
 
-- The script uses your webcam (device 0).
-- Make sure the game window is active to receive keyboard inputs.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## License
+## 🙏 Acknowledgments
 
-MIT
+- [MediaPipe](https://mediapipe.dev/) for the hand tracking solution
+- [OpenCV](https://opencv.org/) for image processing capabilities
+- Hill Climb Racing game developers
+
+---
+Made with ❤️ by Abhinav
